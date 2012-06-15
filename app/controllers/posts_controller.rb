@@ -12,4 +12,8 @@ class PostsController < ApplicationController
     flash[:notice] = t(:you_succesfully_published_a_post)
     redirect_to posts_path
   end
+
+  def show
+    @post = Post.find(params[:id])
+  end
 end

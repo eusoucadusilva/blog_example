@@ -17,7 +17,9 @@ describe "Publish post" do
       page.should have_content I18n.t(:you_succesfully_published_a_post)
     end
 
-    it "redirects to posts path"
+    it "redirects to posts path" do
+      current_path.should == posts_path
+    end
 
   end
 end

@@ -48,4 +48,19 @@ describe PostsController do
       flash[:notice].should == I18n.t(:you_succesfully_published_a_post)
     end
   end
+
+  describe "GET :show" do
+    before do
+      FactoryGirl.create :post
+      get :show, :id => 1
+    end
+
+    it "returns success" do
+      response.should be_success
+    end
+
+    it "assigns a post" do
+      assigns[:post].id.should == 1
+    end
+  end
 end
